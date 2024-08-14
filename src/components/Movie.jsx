@@ -1,4 +1,6 @@
-function Movie({movie}) {
+/* eslint-disable react/prop-types */
+
+function Movie({ movie }) {
     return ( 
         <>
             <h1>{movie.title}</h1>
