@@ -5,6 +5,7 @@ import {
   Heading,
   Grid,
 } from "@chakra-ui/react";
+import Navbar from "./Navbar";
 
 function MovieList() {
   const [movieList, setMovieList] = useState([]);
@@ -16,7 +17,7 @@ function MovieList() {
   return (
     <>
       <Heading fontSize="50px" textAlign="center" color="red.600">
-        M flix
+        <Navbar/>
       </Heading>
       <Grid templateColumns="repeat(3, 1fr)" gap={6}>
         {/* <SimpleGrid spacing={3} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'> */}
