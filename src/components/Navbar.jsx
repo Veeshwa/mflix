@@ -1,22 +1,30 @@
 
-import { Box, Flex, Link } from "@chakra-ui/react";
+// import Header from "./Header";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import MovieList from "./MovieList";
+import PopularMovieList from "./PopularMovieList";
+import Header from "./Header";
+import Home from "./Home";
 
-const Navbar = () => {
-  return (
-    <Box bg="black" px={4}>
-      <Flex h={16} alignItems="center" justifyContent="left">
-        <Box color="red" fontSize="40px">MFLIX</Box>
-        <Box px={5}></Box>
-        <Flex alignItems="center">
-          <Link href="#home" px={2} fontSize="20px" color="white">Home</Link>
-          <Link href="#about" px={2} fontSize="20px" color="white">TvShows</Link>
-          <Link href="#contact" px={2} fontSize="20px" color="white">Movies</Link>
-          <Link href="#contact" px={2} fontSize="20px" color="white">News&Popular</Link>
-          <Link href="#contact" px={2} fontSize="20px" color="white">BrowseByLanguages</Link>
-          <Link href="#contact" px={2} fontSize="20px" color="white">MyList</Link>
-        </Flex>
-      </Flex>
-    </Box>
+function Navbar(){
+  return(
+    <>
+    
+    <BrowserRouter>
+      <Header/>
+      <Routes>
+        
+        <Route path="/" element={<Home/>}/>
+        <Route path="movie" element={<MovieList/>}/>
+        <Route path="popular" element={<PopularMovieList/>}/>
+      
+      </Routes>
+      
+    
+    
+    </BrowserRouter>
+    
+    </>
   );
 }
 
