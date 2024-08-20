@@ -1,16 +1,17 @@
-import { getMovies } from "../lib/get-movies";
+import { getPopularMovie } from "../lib/get-popularMovie";
 import { useEffect, useState } from "react";
-import Movie from "./Movie";
 import {
   Heading,
   Grid,
 } from "@chakra-ui/react";
 // import Navbar from "./Navbar";
+// eslint-disable-next-line no-unused-vars
+import PopularMovie from "./PopularMovie";
 
-function MovieList() {
+function PopularMovieList() {
   const [movieList, setMovieList] = useState([]);
   useEffect(() => {
-    getMovies()
+    getPopularMovie()
       .then((response) => response.json())
       .then((data) => setMovieList(data.results));
   }, []);
@@ -21,12 +22,12 @@ function MovieList() {
       </Heading>
       <Grid templateColumns="repeat(3, 1fr)" gap={6}>
         {/* <SimpleGrid spacing={3} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'> */}
-        {movieList.map((movie, index) => (
-          <Movie movie={movie} key= {index} />
+        {movieList.map((popmovie, index) => (
+          <PopularMovie popmovie={popmovie} key= {index} />
         ))}
       </Grid>
     </>
   );
 }
 
-export default MovieList;
+export default PopularMovieList;
