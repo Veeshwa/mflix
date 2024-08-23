@@ -9,11 +9,11 @@ function Header () {
         <Box color="red" fontSize="40px">MFLIX</Box>
         <Box px={5}></Box>
         <Flex alignItems="center">
-         <ChakraLink as={Link} to="/" style={{ padding: '8px', fontSize: '20px', color: 'white' }}>Home</ChakraLink>
-         <ChakraLink as={Link} to="/movie" px={2} fontSize="20px" color="white">Movie</ChakraLink>
-         <ChakraLink as={Link} to="/popular" px={2} fontSize="20px" color="white">New&Popular</ChakraLink>
-         <ChakraLink as={Link} to="/popular" px={2} fontSize="20px" color="white">BrowseByLanguage</ChakraLink>
-         <ChakraLink as={Link} to="/popular" px={2} fontSize="20px" color="white">MyList</ChakraLink>
+         <ChakraLink as={Link}  to="/" style={{ padding: '8px', fontSize: '20px', color: 'white',textDecoration:'none' }}>Home</ChakraLink>
+         <ChakraLink as={Link} style={{textDecoration:'none'}} to="/movie" px={2} fontSize="20px" color="white">Movie</ChakraLink>
+         <ChakraLink as={Link} style={{textDecoration:'none'}} to="/popular" px={2} fontSize="20px" color="white">New&Popular</ChakraLink>
+         <ChakraLink as={Link} style={{textDecoration:'none'}} to="/popular" px={2} fontSize="20px" color="white">BrowseByLanguage</ChakraLink>
+         <ChakraLink as={Link} style={{textDecoration:'none'}} to="/popular" px={2} fontSize="20px" color="white">MyList</ChakraLink>
         </Flex>
       </Flex>
     </Box>

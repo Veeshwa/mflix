@@ -14,7 +14,7 @@ import {
 function Movie({movie}) {
     const url = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     return ( 
-        <Card  maxW="sm">
+        <Card  maxW="-webkit-max-content">
         <CardBody>
           <Image src={url} alt="Comming soon!" borderRadius="lg" />
           <Stack mt="6" spacing="3">
