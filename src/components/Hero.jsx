@@ -52,7 +52,7 @@ const settings = {
   // This can be static or loaded from a server
 
   return (
-    <Box position={'relative'} height={'600px'} width={'full'} overflow={'hidden'}>
+    <Box position={'relative'} height={'640px'} width={'full'} overflow={'hidden'}>
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -71,6 +71,7 @@ const settings = {
         position="absolute"
         left={side}
         top={top}
+        color="white"
         transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickPrev()}>
@@ -83,6 +84,7 @@ const settings = {
         position="absolute"
         right={side}
         top={top}
+        color="white"
         transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickNext()}>
@@ -93,11 +95,12 @@ const settings = {
         {movieList.map((card, index) => (
           <Box
             key={index}
-            height={'6xl'}
+            height="600px"
             position="relative"
-            backgroundPosition="center"
+            backgroundPosition="900px"
+            backgroundColor="black"
             backgroundRepeat="no-repeat"
-            backgroundSize="cover"
+            backgroundSize="400px"
             backgroundImage={`https://image.tmdb.org/t/p/w500/${card.poster_path}`}>
             {/* This is the block you need to change, to customize the caption */}
             <Container size="container.lg" height="600px" position="relative">
@@ -120,6 +123,7 @@ const settings = {
                
               </Stack>
             </Container>
+                       
           </Box>
         ))}
       </Slider>
