@@ -30,6 +30,7 @@ const settings = {
   slidesToScroll: 1,
 }
  function Hero() {
+
   const [movieList, setMovieList] = useState([]);
   useEffect(() => {
     getNowPlaying()
@@ -55,6 +56,7 @@ const settings = {
   // This can be static or loaded from a server
 
   return (
+    <>
     <Box position={'relative'} height={'600px'} width={'full'} overflow={'hidden'}>
       {/* CSS files for react-slick */}
       <link
@@ -132,6 +134,9 @@ const settings = {
         ))}
       </Slider>
     </Box>
+
+
+    </>
   )
 }
 export default Hero;
