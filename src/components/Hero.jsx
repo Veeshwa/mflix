@@ -5,7 +5,7 @@ import { getNowPlaying } from '../lib/now-playing'
 import {
   Box,
   IconButton,
-  useBreakpointValue,
+
   Stack,
   Heading,
   Text,
@@ -16,7 +16,7 @@ import {
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick'
-
+import { useMediaQuery } from 'react-responsive';
 // Settings for the slider
 const settings = {
   dots: true,
@@ -42,17 +42,20 @@ const settings = {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = useState(null);
+  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1024px)' });
+  const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 1023px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
-  const top = useBreakpointValue({ base: '90%', md: '50%' })
-  const side = useBreakpointValue({ base: '30%', md: '40px' })
+  const topPosition = isDesktopOrLaptop ? '50%' : isTablet ? '55%' : '85%';
+  const sidePosition = isDesktopOrLaptop ? '40px' : '10%';
 
   // This list contains all the data for carousels
   // This can be static or loaded from a server
 
   return (
-    <Box position={'relative'} height={'640px'} width={'full'} overflow={'hidden'}>
+    <Box position={'relative'} height={'600px'} width={'full'} overflow={'hidden'}>
       {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
@@ -69,8 +72,8 @@ const settings = {
         aria-label="left-arrow"
         variant="ghost"
         position="absolute"
-        left={side}
-        top={top}
+        left={sidePosition}
+        top={topPosition}
         color="white"
         transform={'translate(0%, -50%)'}
         zIndex={2}
@@ -82,8 +85,8 @@ const settings = {
         aria-label="right-arrow"
         variant="ghost"
         position="absolute"
-        right={side}
-        top={top}
+        right={sidePosition}
+        top={topPosition}
         color="white"
         transform={'translate(0%, -50%)'}
         zIndex={2}
@@ -95,26 +98,27 @@ const settings = {
         {movieList.map((card, index) => (
           <Box
             key={index}
-            height="600px"
+            height={isMobile ? '500px' : isTablet ? '550px' : '600px'}
             position="relative"
-            backgroundPosition="900px"
+            backgroundPosition={isMobile ? "center" : isTablet ? "center" : '900px'}
             backgroundColor="black"
             backgroundRepeat="no-repeat"
-            backgroundSize="400px"
+            backgroundSize={isMobile ? "cover": isTablet ? "400px" : '400px'}
             backgroundImage={`https://image.tmdb.org/t/p/w500/${card.poster_path}`}>
             {/* This is the block you need to change, to customize the caption */}
             <Container size="container.lg" height="600px" position="relative">
               <Stack
                 spacing={6}
                 w={'full'}
-                maxW={'lg'}
+                maxW={isMobile ? 'xs' : 'lg'}
                 position="absolute"
-                top="40%"
-                transform="translate(-60%,0)">
-                <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }} color='red'>
+                top={isMobile?"40%":isTablet?"40%":"30%"}
+                transform={isMobile? "translate(0,-50%)" : isTablet? "translate(0,-50%)":"translate(-60%,0)"}
+                p={isMobile ? 4 : 8}>
+                <Heading fontSize={isMobile ? '2xl' : isTablet ? '3xl' : '5xl'} color='antiquewhite'>
                   {card.title}
                 </Heading>
-                <Text fontSize={{ base: 'md', lg: 'lg' }} color="white">
+                <Text fontSize={isMobile ? 'sm' : 'lg'}  color="white">
                   {card.overview}
                   <br/><br/>
                   <Button colorScheme='red'>Play</Button>&nbsp;
