@@ -59,7 +59,7 @@ function Header() {
               />
               <MenuList>
                 <MenuItem as={Link} to="/profile">Profile</MenuItem>
-                <MenuItem onClick={()=> logout({returnTo:window.location.origin})}>Logout</MenuItem>
+                <MenuItem onClick={()=> logout({logoutParams: {returnTo:window.location.origin}})}>Logout</MenuItem>
               </MenuList>
             </Menu>
           )}
