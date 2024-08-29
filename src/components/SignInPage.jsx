@@ -50,7 +50,7 @@ export default function SignInPage() {
               align={'flex-start'}
               transform={
                   isMobile
-                      ? 'translate(0%, -750%)'
+                      ? 'translate(145%, -650%)'
                       : isTabletOrMobile
                       ? 'translate(0%, -850%)'
                       : 'translate(30%, -480%)'
@@ -66,7 +66,7 @@ export default function SignInPage() {
               maxW={{ base: 'xs', md: 'md', lg: 'lg' }}
               py={12}
               px={6}
-              transform={isMobile ? 'translate(0%, 0%)' : 'translate(-17%, 0%)'}
+              transform={isMobile ? 'translate(-17%, 0%)' : 'translate(-17%, 0%)'}
           >
               <Stack align={'center'} textAlign={'center'}>
                   <Heading color="white" fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}>
